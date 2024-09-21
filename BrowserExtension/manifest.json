@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+    "name": "Dealio Shopping Assistant",
+    "description": "Automatically applies coupons, searches products by image, and helps you shop smarter.",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "contextMenus",
+        "storage",
+        "notifications",
+        "tabs"
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["contentScript.js"]
+        }
+    ],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "applications": {
+        "gecko": {
+            "id": "dealio@shoppingassistant.com",
+            "strict_min_version": "57.0"
+        }
+    }
+}
